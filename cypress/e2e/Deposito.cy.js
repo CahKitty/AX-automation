@@ -59,4 +59,29 @@ describe('Depósito', () => {
     cy.contains('Depósito deletado com sucesso')
       .should('be.visible')
   });
+
+  it('Limpar seleção', () => {
+    cy.visit('https://qa.atlantex.atlanteti.com')
+    cy.contains('Cadastros').click()
+    cy.contains('Depósito').click()
+    cy.get('[data-cy="tableList-table-head-2-input"]').click()
+    cy.get('.gap-9 > .flex').click()
+  });
+
+  it('Exportar todos os registros', () => {
+    cy.visit('https://qa.atlantex.atlanteti.com')
+    cy.contains('Cadastros').click()
+    cy.contains('Depósito').click()
+    cy.get('[data-cy="tableList-menu-button"]').click()
+    cy.contains('XLSX').click()
+  });
+
+  it.only('Excluir em massa', () => {
+    cy.visit('https://qa.atlantex.atlanteti.com')
+    cy.contains('Cadastros').click()
+    cy.contains('Depósito').click()
+    cy.get('[data-cy="tableList-table-head-2-input"]').click()
+    cy.contains('button', 'Deletar').click()
+    cy.get('.bg-red-600').click()
+  });
 })
