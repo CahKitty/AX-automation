@@ -1,7 +1,7 @@
 import{data} from '../support/index'
 
 describe('Depósito', () => {
-  it.only('Cadastrar Depósito - Ativo', () => {
+  it('Cadastrar Depósito - Ativo', () => {
     cy.visit('https://qa.atlantex.atlanteti.com')
     cy.contains('Cadastros').click()
     cy.contains('Depósito').click()
