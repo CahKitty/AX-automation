@@ -52,7 +52,7 @@ describe('Depósito', () => {
     cy.visit('https://qa.atlantex.atlanteti.com')
     cy.contains('Cadastros').click()
     cy.contains('Depósito').click()
-    cy.get('[data-cy="tableList-table-body-1-menu-button"]').click()
+    cy.get('[data-cy="tableList-table-body-1-menu-button"]').first().click()
     cy.contains('Excluir').click()
     cy.get('.bg-red-600').click()
 
