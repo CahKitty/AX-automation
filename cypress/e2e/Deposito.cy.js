@@ -1,7 +1,7 @@
 import{data} from '../support/index'
 
 describe('Depósito', () => {
-  it('Cadastrar Depósito - Ativo', () => {
+  it.only('Cadastrar Depósito - Ativo', () => {
     cy.visit('https://qa.atlantex.atlanteti.com')
     cy.contains('Cadastros').click()
     cy.contains('Depósito').click()
@@ -76,7 +76,7 @@ describe('Depósito', () => {
     cy.contains('XLSX').click()
   });
 
-  it.only('Excluir em massa', () => {
+  it('Excluir em massa', () => {
     cy.visit('https://qa.atlantex.atlanteti.com')
     cy.contains('Cadastros').click()
     cy.contains('Depósito').click()

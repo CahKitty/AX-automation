@@ -1,3 +1,4 @@
 # AX-automation
 
-Rodar 10x a automação de "Cadastro de Depósito - Ativo" (ou o Inativo, sem problemas) para poder gerar cenário de exclusão em massa no último bloco de teste 👍🏼😎
+## Depósito
+Se a listagem estiver vaiza, rode no mínimo 10x o bloco "Cadastro de Depósito - Ativo" (ou o Inativo, sem problemas) para poder gerar os cenários, principalmente o da exclusão em massa (o último bloco de teste) 👍🏼😎
