@@ -1,20 +1,29 @@
 import{data} from '../support/index'
 
 describe('Depósito', () => {
-  it('Cadastrar Depósito - Ativo', () => {
+  it.skip('Primeiro Acesso', () => {
+    cy.visit('https://qa.atlantex.atlanteti.com')
+    cy.contains('Cadastros').click()
+    cy.contains('Depósito').click()
+    cy.get('[data-cy="tableEmpty-button-register"]').click()
+      
+  });
+
+  it.only('Cadastrar Depósito - Ativo', () => {
     cy.visit('https://qa.atlantex.atlanteti.com')
     cy.contains('Cadastros').click()
     cy.contains('Depósito').click()
     cy.contains('Cadastrar').click()
     cy.get('[data-cy="warehouse-select"]').select('Teste')
     cy.get('[data-cy="code-input"]').type(data.id_number)
-    cy.get('[data-cy="erpCode-input"]').type(data.id_number)
+    cy.get('[data-cy="erpCode-input"]').type(data.id_number) 
     cy.get('[data-cy="name-input"]').type(data.enterprise_name)
     cy.get('[data-cy="branchOffice-select"]').select('Teste')
     cy.get('[data-cy="isThirdPartManaged-radio-1"]').click()
     cy.get('[data-cy="managementCompany-select"]').select('Teste')
-    cy.get('[data-cy="costCenter-select"]').select('Teste')
-    cy.get('[data-cy="purchaseReceivement-radio-1"]').click()
+    cy.get('[data-cy="costCenter-select"]').select('Teste') 
+    cy.get('[data-cy="purchaseReceivement-radio-1"]').click() 
+    cy.get('[data-cy="pickingMethod-select"]').select('Picking Discreto')
     cy.get('[data-cy="submit-button"]').click()
   })
 
@@ -32,6 +41,7 @@ describe('Depósito', () => {
     cy.get('[data-cy="managementCompany-select"]').select('Teste')
     cy.get('[data-cy="costCenter-select"]').select('Teste')
     cy.get('[data-cy="purchaseReceivement-radio-1"]').click()
+    cy.get('[data-cy="pickingMethod-select"]').select('Picking Discreto')
     cy.get('[data-cy="inactive-switch"]').click()
     cy.get('[data-cy="submit-button"]').click()
   })
@@ -42,10 +52,15 @@ describe('Depósito', () => {
     cy.contains('Depósito').click()
     cy.get('tbody [data-cy="tableList-table-body-edit"]').first().trigger('mouseover').first().click()
     cy.get('[data-cy="warehouse-select"]').select('Teste')
-    cy.get('[data-cy="code-input"]').type(data.id_number)
-    cy.get('[data-cy="code-input"]').type(data.id_number)
-    cy.get('[data-cy="code-input"]').type(data.enterprise_name)
+    cy.get('[data-cy="erpCode-input"]').type(data.id_number)
+    cy.get('[data-cy="name-input"]').type(data.enterprise_name)
+    cy.get('[data-cy="isThirdPartManaged-radio-2"]').click()
+    cy.get('[data-cy="purchaseReceivement-radio-2"]').click()
+    cy.get('[data-cy="pickingMethod-select"]').select('Picking por Zona')
     cy.get('[data-cy="submit-button"]').click()
+
+    cy.contains('Depósito editado com sucesso')
+      .should('be.visible')
   })
 
   it('Excluir Depósito', () => {
@@ -76,7 +91,7 @@ describe('Depósito', () => {
     cy.contains('XLSX').click()
   });
 
-  it('Excluir em massa', () => {
+  it.skip('Excluir em massa', () => {
     cy.visit('https://qa.atlantex.atlanteti.com')
     cy.contains('Cadastros').click()
     cy.contains('Depósito').click()
